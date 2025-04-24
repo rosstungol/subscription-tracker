@@ -1,0 +1,18 @@
+{
+  "compilerOptions": {
+    "target": "ES2020", // Compile to modern JavaScript (ES2020 or newer)
+    "module": "ESNext", // Use ES Modules
+    "moduleResolution": "node", // Resolve modules the same way Node.js does
+    "esModuleInterop": true, // Allow default imports from CommonJS modules
+    "skipLibCheck": true, // Skip checking types of declaration files
+    "forceConsistentCasingInFileNames": true, // Ensure that file names are case-consistent
+    "outDir": "./dist", // Output compiled JS files to the 'dist' folder
+    "rootDir": "./", // The root folder containing your TypeScript files (the current folder)
+    "resolveJsonModule": true, // Allow importing JSON modules
+    "strict": true, // Enable all strict type-checking options
+    "allowJs": true, // Allow JavaScript files to be compiled (if needed)
+    "skipDefaultLibCheck": true // Skip checking the default library types (improves build times)
+  },
+  "include": ["app.ts"], // Include your TypeScript files (in this case, app.ts is in the root folder)
+  "exclude": ["node_modules"] // Exclude the node_modules folder from being compiled
+}
