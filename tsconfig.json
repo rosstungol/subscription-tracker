@@ -11,7 +11,9 @@
     "resolveJsonModule": true, // Allow importing JSON modules
     "strict": true, // Enable all strict type-checking options
     "allowJs": true, // Allow JavaScript files to be compiled (if needed)
-    "skipDefaultLibCheck": true // Skip checking the default library types (improves build times)
+    "skipDefaultLibCheck": true, // Skip checking the default library types (improves build times)
+    "allowImportingTsExtensions": true, // Allow importing with file extensions
+    "noEmit": true
   },
   "include": ["app.ts"], // Include your TypeScript files (in this case, app.ts is in the root folder)
   "exclude": ["node_modules"] // Exclude the node_modules folder from being compiled
