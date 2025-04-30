@@ -1,17 +1,25 @@
-import mongoose from "mongoose";
+import mongoose, { Schema, Model } from "mongoose";
 
-const userSchema = new mongoose.Schema(
+type UserType = {
+  name: string;
+  email: string;
+  password: string;
+  createdAt: Date;
+  updatedAt: Date;
+};
+
+const userSchema = new Schema<UserType>(
   {
     name: {
       type: String,
-      required: [true, "User Name is required"],
+      required: [true, "User name is required"],
       trim: true,
       minLength: 2,
       maxLength: 50,
     },
     email: {
       type: String,
-      required: [true, "User Email is required"],
+      required: [true, "User email is required"],
       unique: true,
       trim: true,
       lowercase: true,
@@ -19,13 +27,14 @@ const userSchema = new mongoose.Schema(
     },
     password: {
       type: String,
-      required: [true, "User Password is required"],
+      required: [true, "User password is required"],
       minLength: 6,
     },
   },
   { timestamps: true }
 );
 
-const User = mongoose.model("User", userSchema);
+const User: Model<UserType> =
+  mongoose.models.User || mongoose.model("User", userSchema);
 
 export default User;
