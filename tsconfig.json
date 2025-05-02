@@ -15,6 +15,6 @@
     "allowImportingTsExtensions": true, // Allow importing with file extensions
     "noEmit": true
   },
-  "include": ["app.ts"], // Include your TypeScript files (in this case, app.ts is in the root folder)
+  "include": ["src/app.ts"], // Include your TypeScript files (in this case, app.ts is in the root folder)
   "exclude": ["node_modules"] // Exclude the node_modules folder from being compiled
 }
