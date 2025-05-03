@@ -1,12 +1,6 @@
 import mongoose, { Schema, Model } from "mongoose";
 
-type UserType = {
-  name: string;
-  email: string;
-  password: string;
-  createdAt: Date;
-  updatedAt: Date;
-};
+import { UserType } from "../types/models.ts";
 
 const userSchema = new Schema<UserType>(
   {

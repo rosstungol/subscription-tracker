@@ -1,10 +1,6 @@
 import { Request, Response, NextFunction } from "express";
 
-type CustomError = Error & {
-  statusCode?: number;
-  code?: number;
-  errors: Record<string, { message: string }>;
-};
+import { CustomError } from "../types/index.ts";
 
 const errorMiddleware = (
   err: unknown,

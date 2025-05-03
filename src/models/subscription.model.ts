@@ -1,32 +1,6 @@
-import mongoose, { Schema, Model, Types } from "mongoose";
+import mongoose, { Schema, Model } from "mongoose";
 
-type Currency = "USD" | "EUR" | "GBP";
-type Frequency = "daily" | "weekly" | "monthly" | "yearly";
-type Category =
-  | "sports"
-  | "news"
-  | "entertainment"
-  | "lifestyle"
-  | "technology"
-  | "finance"
-  | "politics"
-  | "others";
-type Status = "active" | "cancelled" | "expired";
-
-type SubscriptionType = {
-  name: string;
-  price: number;
-  currency: Currency;
-  frequency: Frequency;
-  category: Category;
-  paymentMethod: string;
-  status: Status;
-  startDate: Date;
-  renewalDate?: Date;
-  user: Types.ObjectId;
-  createdAt: Date;
-  updatedAt: Date;
-};
+import { Frequency, SubscriptionType } from "../types/models.ts";
 
 const subscriptionSchema = new Schema<SubscriptionType>(
   {
