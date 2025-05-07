@@ -2,7 +2,6 @@ import express from "express";
 import cookieParser from "cookie-parser";
 
 import { PORT } from "./config/env.ts";
-
 import authRouter from "./routes/auth.routes.ts";
 import userRouter from "./routes/user.routes.ts";
 import subscriptionRouter from "./routes/subscription.routes.ts";
