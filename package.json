@@ -8,6 +8,8 @@
     "dev": "nodemon --watch . --ext ts --exec \"node --loader ts-node/esm src/app.ts\""
   },
   "dependencies": {
+    "@arcjet/inspect": "^1.0.0-beta.7",
+    "@arcjet/node": "^1.0.0-beta.7",
     "bcryptjs": "^3.0.2",
     "cookie-parser": "^1.4.4",
     "debug": "^2.6.9",
