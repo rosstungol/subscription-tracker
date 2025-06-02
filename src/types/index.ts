@@ -3,7 +3,6 @@ import { Request } from "express";
 import { UserType } from "./models";
 
 // Middleware
-
 export type CustomError = Error & {
   statusCode?: number;
   code?: number;

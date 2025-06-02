@@ -7,6 +7,7 @@ export type UserType = {
   password: string;
   createdAt: Date;
   updatedAt: Date;
+  _id: string;
 };
 
 // Subscription
