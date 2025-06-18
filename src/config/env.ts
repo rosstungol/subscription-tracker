@@ -11,6 +11,8 @@ const envSchema = z.object({
   JWT_EXPIRES_IN: z.string().default("1d"),
   ARCJET_KEY: z.string().min(1, "ARCJET_KEY is required"),
   ARCJET_ENV: z.string().default("development"),
+  QSTASH_TOKEN: z.string().min(1, "QSTASH_TOKEN is required"),
+  QSTASH_URL: z.string().min(1, "QSTASH_URL is required"),
 });
 
 const env = envSchema.parse(process.env);
@@ -23,4 +25,6 @@ export const {
   JWT_EXPIRES_IN,
   ARCJET_KEY,
   ARCJET_ENV,
+  QSTASH_TOKEN,
+  QSTASH_URL,
 } = env;
