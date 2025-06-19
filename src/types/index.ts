@@ -18,3 +18,11 @@ export type JwtPayload = {
 export type AuthenticatedRequest = Request & {
   user: UserType;
 };
+
+export type Context = {
+  requestPayload: {
+    subscriptionId: string;
+  };
+  run: <T>(label: string, fn: () => Promise<T>) => Promise<T>;
+  sleepUntil: (label: string, date: Date) => Promise<void>;
+};
