@@ -5,6 +5,7 @@ import { PORT } from "./config/env.ts";
 import authRouter from "./routes/auth.routes.ts";
 import userRouter from "./routes/user.routes.ts";
 import subscriptionRouter from "./routes/subscription.routes.ts";
+import workflowRouter from "./routes/workflow.routes.ts";
 import connectToDatabase from "./database/mongodb.ts";
 import errorMiddleware from "./middlewares/error.middleware.ts";
 
@@ -17,6 +18,7 @@ app.use(cookieParser());
 app.use("/api/v1/auth", authRouter);
 app.use("/api/v1/users", userRouter);
 app.use("/api/v1/subscriptions", subscriptionRouter);
+app.use("/api/v1/workflows", workflowRouter);
 
 app.use(errorMiddleware);
 
