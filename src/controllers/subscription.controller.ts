@@ -1,7 +1,9 @@
+import { workflowClient } from "../config/upstash.ts";
 import { Request, Response, NextFunction, RequestHandler } from "express";
 
 import Subscription from "../models/subscription.model.ts";
 import { AuthenticatedRequest, CustomError } from "../types/index.ts";
+import { SERVER_URL } from "../config/env.ts";
 
 export const createSubscription: RequestHandler = async (
   req: Request,
@@ -16,7 +18,20 @@ export const createSubscription: RequestHandler = async (
       user: user._id,
     });
 
-    res.status(201).json({ success: true, data: subscription });
+    const { workflowRunId } = await workflowClient.trigger({
+      url: `${SERVER_URL}/api/v1/workflows/subscription/reminder`,
+      body: {
+        subscriptionId: subscription.id,
+      },
+      headers: {
+        "content-type": "application/json",
+      },
+      retries: 0,
+    });
+
+    res
+      .status(201)
+      .json({ success: true, data: { subscription, workflowRunId } });
   } catch (error) {
     next(error);
   }
