@@ -14,6 +14,7 @@ const envSchema = z.object({
   ARCJET_ENV: z.string().default("development"),
   QSTASH_TOKEN: z.string().min(1, "QSTASH_TOKEN is required"),
   QSTASH_URL: z.string().min(1, "QSTASH_URL is required"),
+  EMAIL_PASSWORD: z.string(),
 });
 
 const env = envSchema.parse(process.env);
@@ -29,4 +30,5 @@ export const {
   ARCJET_ENV,
   QSTASH_TOKEN,
   QSTASH_URL,
+  EMAIL_PASSWORD,
 } = env;
