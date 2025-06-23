@@ -1,5 +1,3 @@
-import { Types } from "mongoose";
-
 // User
 export type UserType = {
   name: string;
@@ -34,7 +32,7 @@ export type SubscriptionType = {
   status: Status;
   startDate: Date;
   renewalDate?: Date;
-  user: Types.ObjectId;
+  user: UserType;
   createdAt: Date;
   updatedAt: Date;
 };
