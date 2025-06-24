@@ -1,9 +1,19 @@
 import dayjs from "dayjs";
+import { SentMessageInfo } from "nodemailer";
 
 import { emailTemplates } from "./email-template.js";
 import transporter, { accountEmail } from "../config/nodemailer.js";
+import { SubscriptionType } from "../types/models.js";
 
-export const sendReminderEmail = async ({ to, type, subscription }) => {
+export const sendReminderEmail = async ({
+  to,
+  type,
+  subscription,
+}: {
+  to: string;
+  type: string;
+  subscription: SubscriptionType;
+}) => {
   if (!to || !type) throw new Error("Missing required parameters");
 
   const template = emailTemplates.find((t) => t.label === type);
@@ -29,9 +39,10 @@ export const sendReminderEmail = async ({ to, type, subscription }) => {
     html: message,
   };
 
-  transporter.sendMail(mailOptions, (error, info) => {
-    if (error) return console.log(error, "Error sending email");
-
+  try {
+    const info: SentMessageInfo = await transporter.sendMail(mailOptions);
     console.log(`Email sent: ${info.response}`);
-  });
+  } catch (error) {
+    console.error("Error sending email:", error);
+  }
 };
